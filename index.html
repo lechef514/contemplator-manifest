@@ -23,6 +23,7 @@
     opacity: 0;
     transition: opacity 1s ease-in-out;
     white-space: pre-wrap;
+    margin: 20px 0;
   }
 
   .paragraph.active {
@@ -118,13 +119,14 @@
 <script>
 const paragraphs = document.querySelectorAll('.paragraph');
 let currentIndex = 0;
-const delay = 9000; // 9 s par paragraphe
+const delay = 9000; // 9 secondes par paragraphe
 
 function showNextParagraph() {
   paragraphs[currentIndex].classList.remove('active');
   currentIndex = (currentIndex + 1) % paragraphs.length;
   paragraphs[currentIndex].classList.add('active');
 }
+
 setInterval(showNextParagraph, delay);
 
 // Effet de frappe + son
