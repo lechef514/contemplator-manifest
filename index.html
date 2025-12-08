@@ -5,31 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manifeste du Contemplateur - Terminal 90s</title>
 <style>
-  html, body {
-    height: 100%;
+  body {
     margin: 0;
+    padding: 40px;
     background-color: #000;
     color: #00FF00;
-    font-family: 'Courier New', Courier, monospace;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-family: "Courier New", Courier, monospace;
     text-align: center;
-    overflow: hidden;
   }
 
   .container {
-    max-width: 700px;
-    width: 100%;
-    position: relative;
-    min-height: 300px;
+    max-width: 800px;
+    margin: 0 auto;
   }
 
   .paragraph {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     opacity: 0;
     transition: opacity 1s ease-in-out;
     white-space: pre-wrap;
@@ -40,23 +30,22 @@
   }
 
   h2 {
+    font-size: 1.5em;
     margin-bottom: 0.5em;
-    font-size: 1.4em;
-    color: #00FF00;
   }
 
   p {
+    font-size: 1.2em;
     line-height: 1.6;
-    font-size: 1.1em;
   }
 
   .cursor {
     display: inline-block;
     width: 10px;
     background-color: #00FF00;
-    margin-left: 2px;
+    margin-left: 5px;
     animation: blink 1s infinite;
-    vertical-align: bottom;
+    height: 1.2em;
   }
 
   @keyframes blink {
@@ -67,7 +56,7 @@
 </head>
 <body>
 
-<div class="container" id="container">
+<div class="container">
 
   <div class="paragraph active">
     <h2>1. De la présence</h2>
@@ -123,22 +112,22 @@
 
 </div>
 
+<!-- Son -->
 <audio id="keypress" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
 
 <script>
 const paragraphs = document.querySelectorAll('.paragraph');
 let currentIndex = 0;
-const delay = 7000; // 7 secondes par paragraphe
+const delay = 9000; // 9 s par paragraphe
 
 function showNextParagraph() {
   paragraphs[currentIndex].classList.remove('active');
   currentIndex = (currentIndex + 1) % paragraphs.length;
   paragraphs[currentIndex].classList.add('active');
 }
-
 setInterval(showNextParagraph, delay);
 
-// Effet "typing" ASCII avec son
+// Effet de frappe + son
 paragraphs.forEach(p => {
   const audio = document.getElementById('keypress');
   const originalText = p.querySelector('p').innerText;
@@ -148,19 +137,18 @@ paragraphs.forEach(p => {
   function type() {
     if (i < originalText.length) {
       p.querySelector('p').innerText += originalText[i];
-      i++;
-      // Jouer un son de frappe aléatoire toutes les 2 à 4 caractères
       if (i % 2 === 0) {
         audio.currentTime = 0;
         audio.play();
       }
-      setTimeout(type, 25); // vitesse de frappe
+      i++;
+      setTimeout(type, 20);
     }
   }
 
   p.addEventListener('transitionstart', () => {
-    i = 0;
     p.querySelector('p').innerText = '';
+    i = 0;
     type();
   });
 });
