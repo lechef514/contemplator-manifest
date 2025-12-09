@@ -1,63 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>MANIFESTE DU CONTEMPLATEUR D'ART</title>
-
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Manifeste du Contemplateur d’Art</title>
 <style>
-    body {
-        margin: 0;
-        padding: 40px;
-        background-color: #000;
-        color: #00FF00;
-        font-family: "Courier New", monospace;
-        text-align: center;
-        overflow-y: auto;
-    }
-
-    h1 {
-        font-size: 42px;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-    }
-
-    .container {
-        max-width: 900px;
-        margin: 0 auto;
-        padding-top: 20px;
-    }
-
-    .paragraph {
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        white-space: pre-wrap;
-        font-size: 20px;
-        line-height: 1.6;
-        margin: 40px 0;
-    }
-
-    .cursor {
-        width: 12px;
-        height: 24px;
-        background-color: #00FF00;
-        margin: 0 auto;
-        animation: blink 1s steps(2, start) infinite;
-    }
-
-    @keyframes blink {
-        0% { opacity: 1; }
-        50% { opacity: 0; }
-        100% { opacity: 1; }
-    }
-
-    a {
-        color: #00FF00;
-        text-decoration: underline;
-        font-size: 22px;
-    }
+  body{margin:0;padding:40px;background:#000;color:#00FF00;font-family:"Courier New",monospace;text-align:center;overflow-y:auto}
+  h1{font-size:42px;margin-bottom:20px;text-transform:uppercase;letter-spacing:3px}
+  .container{max-width:900px;margin:0 auto;padding-top:20px}
+  .paragraph{opacity:0;transition:opacity 1s ease-in-out;white-space:pre-wrap;font-size:20px;line-height:1.6;margin:40px 0;text-align:left}
+  .cursor{width:12px;height:24px;background:#00FF00;margin:20px auto;animation:blink 1s steps(2,start) infinite}
+  @keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
+  a{color:#00FF00;text-decoration:underline;font-size:22px}
+  .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:9999}
+  .panel{background:#000;border:2px solid #00FF00;padding:24px;text-align:center;border-radius:6px}
+  .btn{background:#00FF00;color:#000;border:none;padding:10px 18px;margin:8px;cursor:pointer;font-weight:700;border-radius:4px}
+  .btn.secondary{background:transparent;color:#00FF00;border:1px solid #00FF00}
 </style>
-
 </head>
 <body>
 
@@ -65,78 +24,124 @@
 
 <div class="container">
 
-    <p class="paragraph">Le contemplateur d’art est un être poreux. Il ne prend pas possession de l’œuvre, il s’offre à elle. Il ne conquiert pas le sens, il le laisse venir à lui.</p>
+  <p class="paragraph">Le contemplateur d’art est un être poreux. Il ne prend pas possession de l’œuvre, il s’offre à elle. Il ne conquiert pas le sens, il le laisse venir à lui.</p>
 
-    <p class="paragraph">Il accueille.  
+  <p class="paragraph">Il accueille.  
 L’image, le geste, la matière, la forme – tout est reçu avant d’être compris.  
 Le regard n’est pas un projecteur mais une membrane.</p>
 
-    <p class="paragraph">Contempler, ce n’est pas analyser.  
+  <p class="paragraph">Contempler, ce n’est pas analyser.  
 C’est ralentir jusqu’à sentir le mouvement secret de ce qui ne bouge pas.</p>
 
-    <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée pour exister.  
+  <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée pour exister.  
 Elle n’a pas d’obligation d’être comprise.  
 Elle se suffit.  
 Elle attend seulement un espace intérieur où résonner.</p>
 
-    <p class="paragraph">Le contemplateur d’art est un instrument.  
+  <p class="paragraph">Le contemplateur d’art est un instrument.  
 L’œuvre joue de lui.  
 Il devient vibration, résonance, chambre d’écho.</p>
 
-    <p class="paragraph">L’attention qu’il porte est une forme d’amour.  
+  <p class="paragraph">L’attention qu’il porte est une forme d’amour.  
 Un amour sans désir de posséder.  
 Un amour qui ne retient rien.</p>
 
-    <p class="paragraph">Regarder une œuvre, c’est accepter d’être transformé par elle.  
+  <p class="paragraph">Regarder une œuvre, c’est accepter d’être transformé par elle.  
 Même imperceptiblement.  
 Même silencieusement.</p>
 
-    <p class="paragraph">Contempler, c’est suspendre la volonté.  
+  <p class="paragraph">Contempler, c’est suspendre la volonté.  
 S’ouvrir.  
 Ne plus vouloir décider.  
 Ne plus vouloir juger.</p>
 
-    <p class="paragraph">Dans ce renoncement, une autre réalité apparaît.  
+  <p class="paragraph">Dans ce renoncement, une autre réalité apparaît.  
 Plus lente.  
 Plus douce.  
 Plus vaste.</p>
 
-    <p class="paragraph">Le contemplateur d’art ne cherche pas la vérité.  
+  <p class="paragraph">Le contemplateur d’art ne cherche pas la vérité.  
 Il se rend disponible à ce qui vit derrière les yeux.</p>
 
-    <p class="paragraph">C’est dans ce silence que l’œuvre respire.  
+  <p class="paragraph">C’est dans ce silence que l’œuvre respire.  
 Et que l’être écoute.</p>
 
-    <!-- 🔗 LIEN INSTAGRAM À LA FIN -->
-    <p style="margin-top:50px;">
-        <a href="https://www.instagram.com/lc.du.chef/" target="_blank">
-            → Suivre sur Instagram : @lc.du.chef
-        </a>
-    </p>
+  <!-- Signature -->
+  <p style="margin-top:30px; font-size:18px; opacity:0.8; font-style:italic; text-align:center;">
+    — Alexandre ose A
+  </p>
+
+  <!-- Lien Instagram -->
+  <p style="margin-top:50px">
+    <a href="https://www.instagram.com/lc.du.chef/" target="_blank">
+      → Suivre sur Instagram : @lc.du.chef
+    </a>
+  </p>
 
 </div>
 
 <div class="cursor"></div>
 
+<!-- Écran de démarrage -->
+<div id="overlay" class="overlay">
+  <div class="panel">
+    <div style="margin-bottom:12px">Appuyez pour démarrer l'expérience</div>
+    <button id="startSound" class="btn">Start (son activé)</button>
+    <button id="startNoSound" class="btn secondary">Start (sans son)</button>
+  </div>
+</div>
+
 <script>
-    const paragraphs = document.querySelectorAll(".paragraph");
-    let index = 0;
+  const paragraphs = document.querySelectorAll('.paragraph');
+  let index = 0;
+  const delay = 3500;
+  let soundEnabled = false;
+  let audioCtx = null;
+  let gainNode = null;
 
-    function showNextParagraph() {
-        if (index < paragraphs.length) {
-            paragraphs[index].style.opacity = 1;
+  function playBeep() {
+    if (!soundEnabled || !audioCtx) return;
+    const osc = audioCtx.createOscillator();
+    const g = audioCtx.createGain();
+    osc.type = "square";
+    osc.frequency.value = 800;
+    g.gain.value = 0.06;
+    osc.connect(g);
+    g.connect(gainNode);
+    osc.start();
+    setTimeout(() => osc.stop(), 60);
+  }
 
-            // petit bip discret
-            const beep = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQgAAAAA");
-            beep.volume = 0.1;
-            beep.play();
-
-            index++;
-            setTimeout(showNextParagraph, 3500);
-        }
+  function showNext() {
+    if (index < paragraphs.length) {
+      paragraphs[index].style.opacity = 1;
+      playBeep();
+      index++;
+      setTimeout(showNext, delay);
     }
+  }
 
-    showNextParagraph();
+  function initAudio() {
+    if (audioCtx) return;
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    gainNode = audioCtx.createGain();
+    gainNode.gain.value = 1;
+    gainNode.connect(audioCtx.destination);
+  }
+
+  document.getElementById("startSound").onclick = () => {
+    soundEnabled = true;
+    initAudio();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    document.getElementById("overlay").style.display = "none";
+    showNext();
+  };
+
+  document.getElementById("startNoSound").onclick = () => {
+    soundEnabled = false;
+    document.getElementById("overlay").style.display = "none";
+    showNext();
+  };
 </script>
 
 </body>
