@@ -2,150 +2,141 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MANIFESTE DU CONTEMPLATEUR D'ART</title>
+
 <style>
-  body {
-    margin: 0;
-    padding: 50px;
-    background-color: #000;
-    color: #00FF00;
-    font-family: "Courier New", Courier, monospace;
-    text-align: center;
-  }
+    body {
+        margin: 0;
+        padding: 40px;
+        background-color: #000;
+        color: #00FF00;
+        font-family: "Courier New", monospace;
+        text-align: center;
+        overflow-y: auto;
+    }
 
-  .container {
-    max-width: 900px;
-    margin: 0 auto;
-  }
+    h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+    }
 
-  h1 {
-    font-size: 3em;
-    margin-bottom: 40px;
-    text-decoration: underline;
-  }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
 
-  .paragraph {
-    opacity: 1; /* Toujours visible */
-    transition: opacity 1s ease-in-out;
-    white-space: pre-wrap;
-    margin: 20px 0;
-  }
+    .paragraph {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+        white-space: pre-wrap;
+        font-size: 20px;
+        line-height: 1.6;
+        margin: 40px 0;
+    }
 
-  h2 {
-    font-size: 1.8em;
-    margin-bottom: 0.5em;
-  }
+    .cursor {
+        width: 12px;
+        height: 24px;
+        background-color: #00FF00;
+        margin: 0 auto;
+        animation: blink 1s steps(2, start) infinite;
+    }
 
-  p {
-    font-size: 1.2em;
-    line-height: 1.6;
-    text-align: left;
-  }
+    @keyframes blink {
+        0% { opacity: 1; }
+        50% { opacity: 0; }
+        100% { opacity: 1; }
+    }
 
-  .cursor {
-    display: inline-block;
-    width: 10px;
-    background-color: #00FF00;
-    margin-left: 5px;
-    animation: blink 1s infinite;
-    height: 1.2em;
-    vertical-align: bottom;
-  }
-
-  @keyframes blink {
-    0%, 50% { opacity: 1; }
-    50.01%, 100% { opacity: 0; }
-  }
+    a {
+        color: #00FF00;
+        text-decoration: underline;
+        font-size: 22px;
+    }
 </style>
+
 </head>
 <body>
 
+<h1>Manifeste du Contemplateur d’Art</h1>
+
 <div class="container">
 
-  <h1>MANIFESTE DU CONTEMPLATEUR D'ART</h1>
+    <p class="paragraph">Le contemplateur d’art est un être poreux. Il ne prend pas possession de l’œuvre, il s’offre à elle. Il ne conquiert pas le sens, il le laisse venir à lui.</p>
 
-  <div class="paragraph">
-    <h2>1. Présence</h2>
-    <p>Je suis celui qui s’arrête. Dans un monde où tout s’accélère, je revendique la lenteur comme acte fondateur. Devant l’œuvre, je suspends l’utilité, l’urgence et la fonction. Je n’attends rien : je me rends disponible.</p>
-  </div>
+    <p class="paragraph">Il accueille.  
+L’image, le geste, la matière, la forme – tout est reçu avant d’être compris.  
+Le regard n’est pas un projecteur mais une membrane.</p>
 
-  <div class="paragraph">
-    <h2>2. Rencontre</h2>
-    <p>Toute œuvre est une énigme ouverte. En la regardant, je ne cherche pas à la posséder, mais à la rencontrer. La contemplation n’est pas réception passive : c’est une mise en relation, une tension vivante entre deux présences — celle de l’œuvre et la mienne.</p>
-  </div>
+    <p class="paragraph">Contempler, ce n’est pas analyser.  
+C’est ralentir jusqu’à sentir le mouvement secret de ce qui ne bouge pas.</p>
 
-  <div class="paragraph">
-    <h2>3. Interprétation</h2>
-    <p>Je reconnais que chaque regard est singulier. Je rejette l’idée qu’il n’existe qu’une seule lecture juste. Je revendique mon droit à la subjectivité, à l’émotion, à la résonance intime — sans jamais les ériger en vérité universelle.</p>
-  </div>
+    <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée pour exister.  
+Elle n’a pas d’obligation d’être comprise.  
+Elle se suffit.  
+Elle attend seulement un espace intérieur où résonner.</p>
 
-  <div class="paragraph">
-    <h2>4. Disponibilité</h2>
-    <p>Je m’ouvre à l’œuvre avant la connaissance. Je laisse les concepts venir après l’expérience et non l’inverse. La contemplation commence par le corps : par les yeux, les souffles, les silences. La pensée suit — non pour dominer, mais pour éclairer.</p>
-  </div>
+    <p class="paragraph">Le contemplateur d’art est un instrument.  
+L’œuvre joue de lui.  
+Il devient vibration, résonance, chambre d’écho.</p>
 
-  <div class="paragraph">
-    <h2>5. Réciprocité</h2>
-    <p>« C’est le regardeur qui fait l’œuvre », dit-on. J’ajoute : l’œuvre me fait aussi. Chaque rencontre transforme imperceptiblement la manière dont je vois, dont je sens, dont j’habite le monde. La contemplation est une co-création métabolique.</p>
-  </div>
+    <p class="paragraph">L’attention qu’il porte est une forme d’amour.  
+Un amour sans désir de posséder.  
+Un amour qui ne retient rien.</p>
 
-  <div class="paragraph">
-    <h2>6. Digestion</h2>
-    <p>Je refuse l’instantanéité imposée. Je reconnais à l’œuvre le droit d’exiger du temps, de la patience, de la maturation. Comprendre est parfois immédiat, mais souvent, cela germe en silence, longtemps après le départ.</p>
-  </div>
+    <p class="paragraph">Regarder une œuvre, c’est accepter d’être transformé par elle.  
+Même imperceptiblement.  
+Même silencieusement.</p>
 
-  <div class="paragraph">
-    <h2>7. Résistance</h2>
-    <p>Contempler, aujourd’hui, est un acte de résistance. Contre la vitesse. Contre la saturation visuelle. Contre l’oubli de la profondeur. Je défends le regard lent, attentif, précis, comme un geste politique et existentiel.</p>
-  </div>
+    <p class="paragraph">Contempler, c’est suspendre la volonté.  
+S’ouvrir.  
+Ne plus vouloir décider.  
+Ne plus vouloir juger.</p>
 
-  <div class="paragraph">
-    <h2>8. Humilité</h2>
-    <p>Je me présente devant l’œuvre sans certitude, sans surplomb. Je reconnais ce qui m’échappe. L’incompréhension n’est pas un échec mais un espace de liberté où la pensée peut se déplacer.</p>
-  </div>
+    <p class="paragraph">Dans ce renoncement, une autre réalité apparaît.  
+Plus lente.  
+Plus douce.  
+Plus vaste.</p>
 
-  <div class="paragraph">
-    <h2>9. Souvenir</h2>
-    <p>La contemplation ne s’arrête pas lorsque je quitte l’œuvre. Elle se poursuit dans la mémoire, dans l’imaginaire, dans la manière dont mes gestes s’altèrent. Chaque rencontre est une semence déposée dans le regard.</p>
-  </div>
+    <p class="paragraph">Le contemplateur d’art ne cherche pas la vérité.  
+Il se rend disponible à ce qui vit derrière les yeux.</p>
 
-  <div class="paragraph">
-    <h2>10. Joie</h2>
-    <p>Enfin, j’affirme que contempler est une source de joie profonde : la joie d’être traversé par quelque chose qui me dépasse, la joie de sentir le monde autrement, la joie de percevoir, un instant, la fragile splendeur du réel.</p>
-  </div>
+    <p class="paragraph">C’est dans ce silence que l’œuvre respire.  
+Et que l’être écoute.</p>
 
-  <div class="cursor"></div>
+    <!-- 🔗 LIEN INSTAGRAM À LA FIN -->
+    <p style="margin-top:50px;">
+        <a href="https://www.instagram.com/lc.du.chef/" target="_blank">
+            → Suivre sur Instagram : @lc.du.chef
+        </a>
+    </p>
 
 </div>
 
-<!-- Son de frappe -->
-<audio id="keypress" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
+<div class="cursor"></div>
 
 <script>
-const paragraphs = document.querySelectorAll('.paragraph');
+    const paragraphs = document.querySelectorAll(".paragraph");
+    let index = 0;
 
-// Optionnel : effet de frappe + son sur tous les paragraphes
-paragraphs.forEach(p => {
-  const audio = document.getElementById('keypress');
-  const originalText = p.querySelector('p').innerText;
-  p.querySelector('p').innerText = '';
-  let i = 0;
+    function showNextParagraph() {
+        if (index < paragraphs.length) {
+            paragraphs[index].style.opacity = 1;
 
-  function type() {
-    if (i < originalText.length) {
-      p.querySelector('p').innerText += originalText[i];
-      if (i % 2 === 0) {
-        audio.currentTime = 0;
-        audio.play();
-      }
-      i++;
-      setTimeout(type, 20);
+            // petit bip discret
+            const beep = new Audio("data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQgAAAAA");
+            beep.volume = 0.1;
+            beep.play();
+
+            index++;
+            setTimeout(showNextParagraph, 3500);
+        }
     }
-  }
 
-  type();
-});
+    showNextParagraph();
 </script>
 
 </body>
