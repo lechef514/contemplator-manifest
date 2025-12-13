@@ -1,23 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Manifeste du Contemplateur d’Art</title>
+
 <style>
-  body{margin:0;padding:40px;background:#000;color:#00FF00;font-family:"Courier New",monospace;text-align:center;overflow-y:auto}
-  h1{font-size:42px;margin-bottom:20px;text-transform:uppercase;letter-spacing:3px}
-  .container{max-width:900px;margin:0 auto;padding-top:20px}
-  .paragraph{opacity:0;transition:opacity 1s ease-in-out;white-space:pre-wrap;font-size:20px;line-height:1.6;margin:40px 0;text-align:left}
-  .cursor{width:12px;height:24px;background:#00FF00;margin:20px auto;animation:blink 1s steps(2,start) infinite}
-  @keyframes blink{0%{opacity:1}50%{opacity:0}100%{opacity:1}}
-  a{color:#00FF00;text-decoration:underline;font-size:22px}
-  .overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:9999}
-  .panel{background:#000;border:2px solid #00FF00;padding:24px;text-align:center;border-radius:6px}
-  .btn{background:#00FF00;color:#000;border:none;padding:10px 18px;margin:8px;cursor:pointer;font-weight:700;border-radius:4px}
-  .btn.secondary{background:transparent;color:#00FF00;border:1px solid #00FF00}
+  body {
+    margin: 0;
+    padding: 40px;
+    background-color: #000;
+    color: #00FF00;
+    font-family: "Courier New", monospace;
+    text-align: center;
+    overflow-y: auto;
+  }
+
+  h1 {
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .paragraph {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-size: 20px;
+    line-height: 1.6;
+    margin: 40px 0;
+    text-align: left;
+    white-space: pre-wrap;
+  }
+
+  .cursor {
+    width: 12px;
+    height: 24px;
+    background-color: #00FF00;
+    margin: 30px auto;
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  /* Bloc infolettre */
+  .newsletter {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #00FF00;
+  }
+
+  .newsletter h2 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .newsletter p {
+    font-size: 16px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .newsletter a {
+    display: inline-block;
+    padding: 12px 26px;
+    border: 2px solid #00FF00;
+    color: #00FF00;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.2s ease;
+  }
+
+  .newsletter a:hover {
+    background-color: #00FF00;
+    color: #000;
+  }
+
+  a {
+    color: #00FF00;
+    text-decoration: underline;
+  }
 </style>
 </head>
+
 <body>
 
 <h1>Manifeste du Contemplateur d’Art</h1>
@@ -27,7 +101,7 @@
   <p class="paragraph">Le contemplateur d’art est un être poreux. Il ne prend pas possession de l’œuvre, il s’offre à elle. Il ne conquiert pas le sens, il le laisse venir à lui.</p>
 
   <p class="paragraph">Il accueille.  
-L’image, le geste, la matière, la forme – tout est reçu avant d’être compris.  
+L’image, le geste, la matière, la forme — tout est reçu avant d’être compris.  
 Le regard n’est pas un projecteur mais une membrane.</p>
 
   <p class="paragraph">Contempler, ce n’est pas analyser.  
@@ -71,8 +145,21 @@ Et que l’être écoute.</p>
     — Alexandre ose A
   </p>
 
-  <!-- Lien Instagram -->
-  <p style="margin-top:50px">
+  <!-- INFOLETTRE -->
+  <div class="newsletter">
+    <h2>Infolettre</h2>
+    <p>
+      Recevez des fragments, des silences écrits,  
+      et des invitations à contempler.
+    </p>
+
+    <a href="http://eepurl.com/juafzg" target="_blank">
+      S’inscrire à l’infolettre
+    </a>
+  </div>
+
+  <!-- Instagram -->
+  <p style="margin-top:50px;">
     <a href="https://www.instagram.com/lc.du.chef/" target="_blank">
       → Suivre sur Instagram : @lc.du.chef
     </a>
@@ -82,66 +169,19 @@ Et que l’être écoute.</p>
 
 <div class="cursor"></div>
 
-<!-- Écran de démarrage -->
-<div id="overlay" class="overlay">
-  <div class="panel">
-    <div style="margin-bottom:12px">Appuyez pour démarrer l'expérience</div>
-    <button id="startSound" class="btn">Start (son activé)</button>
-    <button id="startNoSound" class="btn secondary">Start (sans son)</button>
-  </div>
-</div>
-
 <script>
-  const paragraphs = document.querySelectorAll('.paragraph');
+  const paragraphs = document.querySelectorAll(".paragraph");
   let index = 0;
-  const delay = 3500;
-  let soundEnabled = false;
-  let audioCtx = null;
-  let gainNode = null;
-
-  function playBeep() {
-    if (!soundEnabled || !audioCtx) return;
-    const osc = audioCtx.createOscillator();
-    const g = audioCtx.createGain();
-    osc.type = "square";
-    osc.frequency.value = 800;
-    g.gain.value = 0.06;
-    osc.connect(g);
-    g.connect(gainNode);
-    osc.start();
-    setTimeout(() => osc.stop(), 60);
-  }
 
   function showNext() {
     if (index < paragraphs.length) {
       paragraphs[index].style.opacity = 1;
-      playBeep();
       index++;
-      setTimeout(showNext, delay);
+      setTimeout(showNext, 3000);
     }
   }
 
-  function initAudio() {
-    if (audioCtx) return;
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    gainNode = audioCtx.createGain();
-    gainNode.gain.value = 1;
-    gainNode.connect(audioCtx.destination);
-  }
-
-  document.getElementById("startSound").onclick = () => {
-    soundEnabled = true;
-    initAudio();
-    if (audioCtx.state === "suspended") audioCtx.resume();
-    document.getElementById("overlay").style.display = "none";
-    showNext();
-  };
-
-  document.getElementById("startNoSound").onclick = () => {
-    soundEnabled = false;
-    document.getElementById("overlay").style.display = "none";
-    showNext();
-  };
+  showNext();
 </script>
 
 </body>
