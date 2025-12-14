@@ -1,177 +1,30 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manifeste du contemplateur d’art</title>
-
-<style>
-  body {
-    margin: 0;
-    padding: 50px 20px;
-    background: black;
-    color: #00FF00;
-    font-family: "Courier New", monospace;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 42px;
-    letter-spacing: 3px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
-  }
-
-  .controls {
-    margin-bottom: 40px;
-  }
-
-  button {
-    background: black;
-    border: 1px solid #00FF00;
-    color: #00FF00;
-    font-family: "Courier New", monospace;
-    padding: 8px 16px;
-    margin: 5px;
-    cursor: pointer;
-    transition: 0.2s ease;
-  }
-
-  button:hover {
-    background: #00FF00;
-    color: black;
-  }
-
-  .container {
-    max-width: 900px;
-    margin: auto;
-    text-align: left;
-  }
-
-  .paragraph {
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
-    font-size: 20px;
-    line-height: 1.7;
-    margin: 40px 0;
-    white-space: pre-wrap;
-  }
-
-  .signature {
-    margin-top: 50px;
-    text-align: center;
-    font-style: italic;
-    opacity: 0.85;
-  }
-
-  .newsletter {
-    margin-top: 60px;
-    padding-top: 30px;
-    border-top: 1px solid #00FF00;
-    text-align: center;
-  }
-
-  .newsletter h2 {
-    font-size: 26px;
-    margin-bottom: 10px;
-  }
-
-  .newsletter p {
-    font-size: 16px;
-    margin-bottom: 25px;
-  }
-
-  .newsletter a {
-    display: inline-block;
-    padding: 12px 28px;
-    border: 2px solid #00FF00;
-    color: #00FF00;
-    text-decoration: none;
-    transition: 0.2s ease;
-  }
-
-  .newsletter a:hover {
-    background: #00FF00;
-    color: black;
-  }
-</style>
-</head>
-
-<body>
-
-<h1>Manifeste du contemplateur d’art</h1>
-
-<div class="controls">
-  <button id="voiceToggle">▶ Activer la voix</button>
-  <button id="silenceToggle">◼ Silence only</button>
-</div>
-
-<div class="container">
-
-  <p class="paragraph">Le contemplateur d’art est un être poreux.  
-Il ne prend pas possession de l’œuvre, il s’offre à elle.</p>
-
-  <p class="paragraph">Il ne conquiert pas le sens.  
-Il le laisse venir.</p>
-
-  <p class="paragraph">Le regard n’est pas un projecteur,  
-mais une membrane.</p>
-
-  <p class="paragraph">Contempler, ce n’est pas analyser.  
-C’est ralentir jusqu’à sentir  
-le mouvement secret de ce qui ne bouge pas.</p>
-
-  <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée.  
-Elle se suffit.  
-Elle attend seulement  
-un espace intérieur où résonner.</p>
-
-  <p class="paragraph">Le contemplateur devient instrument.  
-L’œuvre joue de lui.</p>
-
-  <p class="paragraph">L’attention qu’il porte  
-est une forme d’amour  
-sans désir de possession.</p>
-
-  <p class="paragraph">Regarder une œuvre,  
-c’est accepter d’être transformé.  
-Même imperceptiblement.  
-Même silencieusement.</p>
-
-  <p class="paragraph">Dans ce renoncement,  
-une autre réalité apparaît.  
-Plus lente.  
-Plus vaste.</p>
-
-  <p class="paragraph">Le contemplateur d’art  
-ne cherche pas la vérité.  
-Il se rend disponible.</p>
-
-  <p class="signature">— Alexandre ose A</p>
-
-  <div class="newsletter">
-    <h2>Correspondance</h2>
-    <p>
-      Recevoir, à intervalles rares,  
-      des fragments et des invitations à contempler.
-    </p>
-
-    <a href="http://eepurl.com/juafzg" target="_blank">
-      Entrer dans la correspondance
-    </a>
-  </div>
-
-</div>
-
 <script>
   const paragraphs = document.querySelectorAll(".paragraph");
   let index = 0;
   let voiceEnabled = false;
   let silenceOnly = false;
   const synth = window.speechSynthesis;
+  let selectedVoice = null;
 
   const voiceBtn = document.getElementById("voiceToggle");
   const silenceBtn = document.getElementById("silenceToggle");
+
+  // Sélection d’une voix féminine française (si disponible)
+  function loadVoices() {
+    const voices = synth.getVoices();
+    selectedVoice = voices.find(v =>
+      v.lang === "fr-FR" &&
+      (v.name.toLowerCase().includes("female") ||
+       v.name.toLowerCase().includes("femme") ||
+       v.name.toLowerCase().includes("julie") ||
+       v.name.toLowerCase().includes("audrey"))
+    ) || voices.find(v => v.lang === "fr-FR") || voices[0];
+  }
+
+  loadVoices();
+  if (speechSynthesis.onvoiceschanged !== undefined) {
+    speechSynthesis.onvoiceschanged = loadVoices;
+  }
 
   voiceBtn.addEventListener("click", () => {
     voiceEnabled = !voiceEnabled;
@@ -189,11 +42,15 @@ Il se rend disponible.</p>
   });
 
   function speak(text) {
-    if (!voiceEnabled || silenceOnly) return;
+    if (!voiceEnabled || silenceOnly || !selectedVoice) return;
+
     const utterance = new SpeechSynthesisUtterance(text);
+    utterance.voice = selectedVoice;
     utterance.lang = "fr-FR";
-    utterance.rate = 0.75;
-    utterance.volume = 0.9;
+    utterance.rate = 0.6;      // PLUS LENT
+    utterance.pitch = 1.05;    // LÉGÈRE DOUCEUR
+    utterance.volume = 0.85;
+
     synth.cancel();
     synth.speak(utterance);
   }
@@ -202,14 +59,16 @@ Il se rend disponible.</p>
     if (index < paragraphs.length) {
       const p = paragraphs[index];
       p.style.opacity = 1;
-      speak(p.innerText);
+
+      // petit silence avant la lecture (respiration)
+      setTimeout(() => {
+        speak(p.innerText);
+      }, 600);
+
       index++;
-      setTimeout(showNext, 4500);
+      setTimeout(showNext, 5200); // rythme plus lent
     }
   }
 
   showNext();
 </script>
-
-</body>
-</html>
