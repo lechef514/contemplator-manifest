@@ -194,41 +194,37 @@ derrière le regard.
 
 <script>
 /* ===============================
-   SCRIPT VOIX FÉMININE DOUCE
+   SCRIPT VOIX FÉMININE GALLERY
 ================================ */
 
 const paragraphs = document.querySelectorAll(".paragraph");
 const synth = window.speechSynthesis;
 
 let index = 0;
-let hasStarted = false;      // une seule lecture (exposition/musée)
+let hasStarted = false;
 let silenceOnly = false;
 let selectedVoice = null;
 
 const startBtn = document.getElementById("startExperience");
 const silenceBtn = document.getElementById("silenceToggle");
 
-// Charger voix féminine française si possible
+// Sélection automatique d’une voix féminine douce et naturelle
 function loadVoices() {
   const voices = synth.getVoices();
   selectedVoice =
     voices.find(v =>
-      v.lang === "fr-FR" &&
-      (v.name.toLowerCase().includes("female") ||
-       v.name.toLowerCase().includes("femme") ||
-       v.name.toLowerCase().includes("julie") ||
-       v.name.toLowerCase().includes("audrey"))
+      v.lang.startsWith("fr") && 
+      (v.name.toLowerCase().includes("female") || v.name.toLowerCase().includes("femme"))
     )
-    || voices.find(v => v.lang === "fr-FR")
+    || voices.find(v => v.lang.startsWith("fr"))
     || voices[0];
 }
-
 loadVoices();
 if (speechSynthesis.onvoiceschanged !== undefined) {
   speechSynthesis.onvoiceschanged = loadVoices;
 }
 
-// Bouton démarrage
+// Bouton démarrage (lecture unique)
 startBtn.addEventListener("click", () => {
   if (hasStarted) return;
   hasStarted = true;
@@ -244,20 +240,22 @@ silenceBtn.addEventListener("click", () => {
   silenceBtn.textContent = "✔ Silence activé";
 });
 
-// Fonction de lecture
+// Fonction de lecture douce
 function speak(text) {
   if (silenceOnly || !selectedVoice) return;
+
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.voice = selectedVoice;
   utterance.lang = "fr-FR";
-  utterance.rate = 0.55;    // très lent
-  utterance.pitch = 1.05;   // doux
+  utterance.rate = 0.50;    // très lent pour galerie
+  utterance.pitch = 1.1;    // léger raffinement
   utterance.volume = 0.85;
+
   synth.cancel();
   synth.speak(utterance);
 }
 
-// Animation texte + voix
+// Animation texte et lecture
 function revealNextParagraph() {
   if (index >= paragraphs.length) return;
 
@@ -266,10 +264,10 @@ function revealNextParagraph() {
 
   setTimeout(() => {
     speak(p.innerText);
-  }, 900); // respiration avant lecture
+  }, 900);
 
   index++;
-  setTimeout(revealNextParagraph, 5800);
+  setTimeout(revealNextParagraph, 6000); // rythme contemplatif
 }
 </script>
 
