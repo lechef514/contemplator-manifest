@@ -9,54 +9,66 @@
   body {
     margin: 0;
     padding: 40px;
-    background-color: #000;
+    background: #000;
     color: #00FF00;
     font-family: "Courier New", monospace;
     text-align: center;
-    overflow-y: auto;
   }
 
   h1 {
     font-size: 42px;
-    margin-bottom: 30px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
     letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .controls {
+    margin-bottom: 40px;
+  }
+
+  button {
+    background: black;
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    font-family: "Courier New", monospace;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin: 0 6px;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background: #00FF00;
+    color: black;
   }
 
   .container {
     max-width: 900px;
     margin: 0 auto;
+    text-align: left;
   }
 
   .paragraph {
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 1.5s ease-in-out;
     font-size: 20px;
-    line-height: 1.6;
-    margin: 40px 0;
-    text-align: left;
+    line-height: 1.7;
+    margin: 45px 0;
     white-space: pre-wrap;
   }
 
-  .cursor {
-    width: 12px;
-    height: 24px;
-    background-color: #00FF00;
-    margin: 30px auto;
-    animation: blink 1s steps(2, start) infinite;
+  .signature {
+    margin-top: 40px;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.85;
   }
 
-  @keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
-  /* Bloc infolettre */
   .newsletter {
-    margin-top: 60px;
+    margin-top: 70px;
     padding-top: 30px;
     border-top: 1px solid #00FF00;
+    text-align: center;
   }
 
   .newsletter h2 {
@@ -67,7 +79,6 @@
   .newsletter p {
     font-size: 16px;
     margin-bottom: 25px;
-    text-align: center;
   }
 
   .newsletter a {
@@ -77,17 +88,28 @@
     color: #00FF00;
     text-decoration: none;
     font-size: 18px;
-    transition: 0.2s ease;
+    transition: 0.2s;
   }
 
   .newsletter a:hover {
-    background-color: #00FF00;
-    color: #000;
+    background: #00FF00;
+    color: black;
+  }
+
+  .cursor {
+    width: 12px;
+    height: 24px;
+    background: #00FF00;
+    margin: 50px auto;
+    animation: blink 1s steps(2, start) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: 0; }
   }
 
   a {
     color: #00FF00;
-    text-decoration: underline;
   }
 </style>
 </head>
@@ -96,72 +118,71 @@
 
 <h1>Manifeste du Contemplateur d’Art</h1>
 
+<div class="controls">
+  <button id="voiceToggle">▶ Activer la voix</button>
+  <button id="silenceMode">⏹ Silence only</button>
+</div>
+
 <div class="container">
 
   <p class="paragraph">Le contemplateur d’art est un être poreux. Il ne prend pas possession de l’œuvre, il s’offre à elle. Il ne conquiert pas le sens, il le laisse venir à lui.</p>
 
-  <p class="paragraph">Il accueille.  
-L’image, le geste, la matière, la forme — tout est reçu avant d’être compris.  
+  <p class="paragraph">Il accueille.
+L’image, le geste, la matière, la forme — tout est reçu avant d’être compris.
 Le regard n’est pas un projecteur mais une membrane.</p>
 
-  <p class="paragraph">Contempler, ce n’est pas analyser.  
+  <p class="paragraph">Contempler, ce n’est pas analyser.
 C’est ralentir jusqu’à sentir le mouvement secret de ce qui ne bouge pas.</p>
 
-  <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée pour exister.  
-Elle n’a pas d’obligation d’être comprise.  
-Elle se suffit.  
+  <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée pour exister.
+Elle n’a pas d’obligation d’être comprise.
+Elle se suffit.
 Elle attend seulement un espace intérieur où résonner.</p>
 
-  <p class="paragraph">Le contemplateur d’art est un instrument.  
-L’œuvre joue de lui.  
+  <p class="paragraph">Le contemplateur d’art est un instrument.
+L’œuvre joue de lui.
 Il devient vibration, résonance, chambre d’écho.</p>
 
-  <p class="paragraph">L’attention qu’il porte est une forme d’amour.  
-Un amour sans désir de posséder.  
+  <p class="paragraph">L’attention qu’il porte est une forme d’amour.
+Un amour sans désir de posséder.
 Un amour qui ne retient rien.</p>
 
-  <p class="paragraph">Regarder une œuvre, c’est accepter d’être transformé par elle.  
-Même imperceptiblement.  
+  <p class="paragraph">Regarder une œuvre, c’est accepter d’être transformé par elle.
+Même imperceptiblement.
 Même silencieusement.</p>
 
-  <p class="paragraph">Contempler, c’est suspendre la volonté.  
-S’ouvrir.  
-Ne plus vouloir décider.  
+  <p class="paragraph">Contempler, c’est suspendre la volonté.
+S’ouvrir.
+Ne plus vouloir décider.
 Ne plus vouloir juger.</p>
 
-  <p class="paragraph">Dans ce renoncement, une autre réalité apparaît.  
-Plus lente.  
-Plus douce.  
+  <p class="paragraph">Dans ce renoncement, une autre réalité apparaît.
+Plus lente.
+Plus douce.
 Plus vaste.</p>
 
-  <p class="paragraph">Le contemplateur d’art ne cherche pas la vérité.  
+  <p class="paragraph">Le contemplateur d’art ne cherche pas la vérité.
 Il se rend disponible à ce qui vit derrière les yeux.</p>
 
-  <p class="paragraph">C’est dans ce silence que l’œuvre respire.  
+  <p class="paragraph">C’est dans ce silence que l’œuvre respire.
 Et que l’être écoute.</p>
 
-  <!-- Signature -->
-  <p style="margin-top:30px; font-size:18px; opacity:0.8; font-style:italic; text-align:center;">
-    — Doryan Rosenbaum
-  </p>
+  <p class="signature">— Alexandre Rosenbaum</p>
 
-  <!-- INFOLETTRE -->
   <div class="newsletter">
-    <h2>Infolettre</h2>
+    <h2>Correspondance</h2>
     <p>
-      Recevez des fragments, des silences écrits,  
-      et des invitations à contempler.
+      Recevoir, à intervalles rares,  
+      des fragments et des invitations à contempler.
     </p>
-
     <a href="http://eepurl.com/juafzg" target="_blank">
-      S’inscrire à l’infolettre
+      Entrer dans la correspondance
     </a>
   </div>
 
-  <!-- Instagram -->
-  <p style="margin-top:50px;">
+  <p style="margin-top:50px; text-align:center;">
     <a href="https://www.instagram.com/lc.du.chef/" target="_blank">
-      → Suivre sur Instagram : @lc.du.chef
+      → Instagram : @lc.du.chef
     </a>
   </p>
 
@@ -172,12 +193,42 @@ Et que l’être écoute.</p>
 <script>
   const paragraphs = document.querySelectorAll(".paragraph");
   let index = 0;
+  let voiceEnabled = false;
+  let silenceOnly = false;
+  const synth = window.speechSynthesis;
+
+  document.getElementById("voiceToggle").addEventListener("click", () => {
+    voiceEnabled = !voiceEnabled;
+    silenceOnly = false;
+    document.getElementById("voiceToggle").innerText =
+      voiceEnabled ? "⏸ Désactiver la voix" : "▶ Activer la voix";
+  });
+
+  document.getElementById("silenceMode").addEventListener("click", () => {
+    silenceOnly = true;
+    voiceEnabled = false;
+    synth.cancel();
+    document.getElementById("voiceToggle").innerText = "▶ Activer la voix";
+  });
+
+  function speak(text) {
+    if (!voiceEnabled || silenceOnly) return;
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = "fr-FR";
+    utterance.rate = 0.75;
+    utterance.pitch = 1;
+    utterance.volume = 0.9;
+    synth.cancel();
+    synth.speak(utterance);
+  }
 
   function showNext() {
     if (index < paragraphs.length) {
-      paragraphs[index].style.opacity = 1;
+      const p = paragraphs[index];
+      p.style.opacity = 1;
+      speak(p.innerText);
       index++;
-      setTimeout(showNext, 3000);
+      setTimeout(showNext, 4500);
     }
   }
 
