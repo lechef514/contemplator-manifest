@@ -8,7 +8,7 @@
 <style>
   body {
     margin: 0;
-    padding: 50px 20px;
+    padding: 60px 20px;
     background: black;
     color: #00FF00;
     font-family: "Courier New", monospace;
@@ -18,12 +18,12 @@
   h1 {
     font-size: 42px;
     letter-spacing: 3px;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-transform: uppercase;
   }
 
   .controls {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 
   button {
@@ -31,10 +31,11 @@
     border: 1px solid #00FF00;
     color: #00FF00;
     font-family: "Courier New", monospace;
-    padding: 8px 16px;
-    margin: 5px;
+    padding: 10px 18px;
+    margin: 6px;
     cursor: pointer;
     transition: 0.2s ease;
+    font-size: 15px;
   }
 
   button:hover {
@@ -50,44 +51,47 @@
 
   .paragraph {
     opacity: 0;
-    transition: opacity 1.2s ease-in-out;
+    transition: opacity 1.4s ease-in-out;
     font-size: 20px;
-    line-height: 1.7;
-    margin: 40px 0;
+    line-height: 1.8;
+    margin: 45px 0;
     white-space: pre-wrap;
   }
 
   .signature {
-    margin-top: 50px;
+    margin-top: 60px;
     text-align: center;
     font-style: italic;
     opacity: 0.85;
+    font-size: 18px;
   }
 
   .newsletter {
-    margin-top: 60px;
-    padding-top: 30px;
+    margin-top: 70px;
+    padding-top: 35px;
     border-top: 1px solid #00FF00;
     text-align: center;
   }
 
   .newsletter h2 {
     font-size: 26px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .newsletter p {
     font-size: 16px;
-    margin-bottom: 25px;
+    margin-bottom: 28px;
+    line-height: 1.6;
   }
 
   .newsletter a {
     display: inline-block;
-    padding: 12px 28px;
+    padding: 14px 30px;
     border: 2px solid #00FF00;
     color: #00FF00;
     text-decoration: none;
     transition: 0.2s ease;
+    font-size: 17px;
   }
 
   .newsletter a:hover {
@@ -102,50 +106,75 @@
 <h1>Manifeste du contemplateur d’art</h1>
 
 <div class="controls">
-  <button id="voiceToggle">▶ Activer la voix</button>
+  <button id="startExperience">▶ Entrer dans la lecture</button>
   <button id="silenceToggle">◼ Silence only</button>
 </div>
 
 <div class="container">
 
-  <p class="paragraph">Le contemplateur d’art est un être poreux.  
-Il ne prend pas possession de l’œuvre, il s’offre à elle.</p>
+  <p class="paragraph">
+Le contemplateur d’art est un être poreux.  
+Il ne saisit pas l’œuvre.  
+Il lui offre un passage.
+  </p>
 
-  <p class="paragraph">Il ne conquiert pas le sens.  
-Il le laisse venir.</p>
+  <p class="paragraph">
+Il ne cherche pas le sens.  
+Il s’y rend disponible.
+  </p>
 
-  <p class="paragraph">Le regard n’est pas un projecteur,  
-mais une membrane.</p>
+  <p class="paragraph">
+Le regard n’éclaire pas.  
+Il accueille.  
+Il devient surface sensible.
+  </p>
 
-  <p class="paragraph">Contempler, ce n’est pas analyser.  
-C’est ralentir jusqu’à sentir  
-le mouvement secret de ce qui ne bouge pas.</p>
+  <p class="paragraph">
+Contempler n’est pas analyser.  
+C’est ralentir,  
+jusqu’à percevoir  
+le mouvement discret  
+de ce qui semble immobile.
+  </p>
 
-  <p class="paragraph">L’œuvre n’a pas besoin d’être expliquée.  
-Elle se suffit.  
-Elle attend seulement  
-un espace intérieur où résonner.</p>
+  <p class="paragraph">
+L’œuvre n’exige aucune explication.  
+Elle existe.  
+Elle attend un espace intérieur  
+où résonner.
+  </p>
 
-  <p class="paragraph">Le contemplateur devient instrument.  
-L’œuvre joue de lui.</p>
+  <p class="paragraph">
+Le contemplateur devient instrument.  
+L’œuvre se déploie en lui.
+  </p>
 
-  <p class="paragraph">L’attention qu’il porte  
-est une forme d’amour  
-sans désir de possession.</p>
+  <p class="paragraph">
+L’attention qu’il offre  
+est une forme d’amour,  
+sans désir de possession.
+  </p>
 
-  <p class="paragraph">Regarder une œuvre,  
-c’est accepter d’être transformé.  
-Même imperceptiblement.  
-Même silencieusement.</p>
+  <p class="paragraph">
+Regarder une œuvre,  
+c’est accepter d’être déplacé.  
+Même subtilement.  
+Même en silence.
+  </p>
 
-  <p class="paragraph">Dans ce renoncement,  
+  <p class="paragraph">
+Dans ce retrait volontaire,  
 une autre réalité apparaît.  
 Plus lente.  
-Plus vaste.</p>
+Plus ample.
+  </p>
 
-  <p class="paragraph">Le contemplateur d’art  
+  <p class="paragraph">
+Le contemplateur d’art  
 ne cherche pas la vérité.  
-Il se rend disponible.</p>
+Il écoute ce qui se tient  
+derrière le regard.
+  </p>
 
   <p class="signature">— Alexandre ose A</p>
 
@@ -164,51 +193,84 @@ Il se rend disponible.</p>
 </div>
 
 <script>
-  const paragraphs = document.querySelectorAll(".paragraph");
-  let index = 0;
-  let voiceEnabled = false;
-  let silenceOnly = false;
-  const synth = window.speechSynthesis;
+/* ===============================
+   SCRIPT VOIX FÉMININE DOUCE
+================================ */
 
-  const voiceBtn = document.getElementById("voiceToggle");
-  const silenceBtn = document.getElementById("silenceToggle");
+const paragraphs = document.querySelectorAll(".paragraph");
+const synth = window.speechSynthesis;
 
-  voiceBtn.addEventListener("click", () => {
-    voiceEnabled = !voiceEnabled;
-    silenceOnly = false;
-    voiceBtn.textContent = voiceEnabled ? "⏸ Désactiver la voix" : "▶ Activer la voix";
-    silenceBtn.textContent = "◼ Silence only";
-  });
+let index = 0;
+let hasStarted = false;      // une seule lecture (exposition/musée)
+let silenceOnly = false;
+let selectedVoice = null;
 
-  silenceBtn.addEventListener("click", () => {
-    silenceOnly = true;
-    voiceEnabled = false;
-    synth.cancel();
-    silenceBtn.textContent = "✔ Silence activé";
-    voiceBtn.textContent = "▶ Activer la voix";
-  });
+const startBtn = document.getElementById("startExperience");
+const silenceBtn = document.getElementById("silenceToggle");
 
-  function speak(text) {
-    if (!voiceEnabled || silenceOnly) return;
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = "fr-FR";
-    utterance.rate = 0.75;
-    utterance.volume = 0.9;
-    synth.cancel();
-    synth.speak(utterance);
-  }
+// Charger voix féminine française si possible
+function loadVoices() {
+  const voices = synth.getVoices();
+  selectedVoice =
+    voices.find(v =>
+      v.lang === "fr-FR" &&
+      (v.name.toLowerCase().includes("female") ||
+       v.name.toLowerCase().includes("femme") ||
+       v.name.toLowerCase().includes("julie") ||
+       v.name.toLowerCase().includes("audrey"))
+    )
+    || voices.find(v => v.lang === "fr-FR")
+    || voices[0];
+}
 
-  function showNext() {
-    if (index < paragraphs.length) {
-      const p = paragraphs[index];
-      p.style.opacity = 1;
-      speak(p.innerText);
-      index++;
-      setTimeout(showNext, 4500);
-    }
-  }
+loadVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) {
+  speechSynthesis.onvoiceschanged = loadVoices;
+}
 
-  showNext();
+// Bouton démarrage
+startBtn.addEventListener("click", () => {
+  if (hasStarted) return;
+  hasStarted = true;
+  silenceOnly = false;
+  startBtn.style.display = "none";
+  revealNextParagraph();
+});
+
+// Bouton silence
+silenceBtn.addEventListener("click", () => {
+  silenceOnly = true;
+  synth.cancel();
+  silenceBtn.textContent = "✔ Silence activé";
+});
+
+// Fonction de lecture
+function speak(text) {
+  if (silenceOnly || !selectedVoice) return;
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.voice = selectedVoice;
+  utterance.lang = "fr-FR";
+  utterance.rate = 0.55;    // très lent
+  utterance.pitch = 1.05;   // doux
+  utterance.volume = 0.85;
+  synth.cancel();
+  synth.speak(utterance);
+}
+
+// Animation texte + voix
+function revealNextParagraph() {
+  if (index >= paragraphs.length) return;
+
+  const p = paragraphs[index];
+  p.style.opacity = 1;
+
+  setTimeout(() => {
+    speak(p.innerText);
+  }, 900); // respiration avant lecture
+
+  index++;
+  setTimeout(revealNextParagraph, 5800);
+}
 </script>
 
 </body>
